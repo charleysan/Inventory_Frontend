@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Header } from "./Header";
-import { PhotosPage } from "./PhotosPage";
+import { ItemsPage } from "./ItemsPage";
 import { Footer } from "./Footer";
 
 // Sets the default URL so we don't have to type http://localhost:3000 every time
@@ -10,7 +10,7 @@ function App() {
   return (
     <div style={{ textAlign: 'center' }}>
       <Header />
-      <PhotosPage />
+      <ItemsPage />
       <Footer />
     </div>
   )
