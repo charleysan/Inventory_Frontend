@@ -1,4 +1,4 @@
-export function ItemsIndex({ items }) {
+export function ItemsIndex({ items, onShow }) {
   return (
     <div>
       <h1>All items ({items.length} total)</h1>
@@ -8,6 +8,7 @@ export function ItemsIndex({ items }) {
           <p>Price:$ {item.price} </p>
           <p>Owner ID: {item.owner_id} </p>
           <p>Store ID: {item.store_id} </p>
+          <button onClick={() => onShow(item)}>More info</button>
       </div>
     ))}
     </div>

@@ -2,9 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { ItemsIndex } from "./ItemsIndex.jsx";
 import {ItemsNew } from "./ItemsNew.jsx";
+import { Modal } from "./Modal.jsx";
 
 export function ItemsPage() {
   const [items, setItems] = useState([]);
+  const [isItemsShowVisible, setIsItemsShowVisible] = useState(false);
   
   const handleIndex = () => {
     console.log("handleIndex");
@@ -16,10 +18,16 @@ export function ItemsPage() {
 
   const handleCreate = (params, successCallback) => {
     console.log("handleCreate");
-    axios.item("http://localhost:3000/items", params).then((response) => {
+    axios.post("http://localhost:3000/items", params)
+    .then((response) => {
       setItems([...items, response.data]);
       successCallback();
     });
+  };
+
+  const handleShow = (item) => {
+    console.log("handleShow", item);
+    setIsItemsShowVisible(true);
   };
 
 
@@ -30,7 +38,10 @@ export function ItemsPage() {
   return (
     <main>
       <ItemsNew onCreate={handleCreate}/>
-      <ItemsIndex items ={items}/>
+      <ItemsIndex items ={items} onShow={handleShow}/>
+      <Modal show={isItemsShowVisible} onClose={() => setIsItemsShowVisible(false)}>
+        <h1>test</h1>
+      </Modal>
     </main>
   );
 }
