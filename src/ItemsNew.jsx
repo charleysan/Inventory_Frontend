@@ -24,7 +24,7 @@ export function ItemsNew({ onCreate }) {
       <div>
         Store ID: <input name="store_id" type="text" />
       </div>
-      <button type="submit">Create</button>
+      <button type="submit">Add Item</button>
     </form>
   </div>
   );
