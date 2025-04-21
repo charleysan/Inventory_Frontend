@@ -1,19 +1,16 @@
-import axios from "axios";
-import { Header } from "./Header";
-import { ItemsPage } from "./ItemsPage";
-import { Footer } from "./Footer";
-
-// Sets the default URL so we don't have to type http://localhost:3000 every time
-// axios.defaults.baseURL = "http://localhost:3000";
+// src/App.jsx
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <Header />
-      <ItemsPage />
-      <Footer />
+    <div>
+      <Navbar />
+      <main style={{ padding: '20px' }}><Outlet /></main>
+      <hr />
+      <footer><p>© {new Date().getFullYear()}</p></footer>
     </div>
-  )
+  );
 }
-
 export default App;
